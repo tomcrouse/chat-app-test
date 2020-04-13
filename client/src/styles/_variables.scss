@@ -1,13 +1,22 @@
 //      *** background colors ***
 
-$bgc-primary: rgb(26, 26, 26);
+$bgc-primary: rgba(26, 26, 26, 1);
 $bgc-secondary: rgba(0, 0, 0, 1);
+$bgc-tertiary: rgb(51, 51, 51);
+$bgc-minor:rgba(141, 141, 141, 0.4);
+$bgc-messages:rgba(22, 22, 22, 1);
+$bgc-text:rgb(189, 187, 187);
+
 
 //      *** text colors ***
 
-$font-primary: rgb(240, 240, 240);
-$font-secondary: rgb(116, 17, 116);
+$font-primary: rgb(0, 0, 0);
+$font-secondary: #e343e3;
+$font-tertiary: rgb(255, 255, 255);
 
-//      *** btn colors ***
+//      *** btn and input colors ***
 
 $btn-color: rgb(14, 172, 172);
+$btn-secondary-color:#e343e3;
+$input-color: rgb(62, 84, 209);
+$input-secondary-color:rgba(227, 67, 227, 0.8);

@@ -7,7 +7,7 @@ const ChatUsers = ({ roomUsers, room }) => {
             <h3>{room}</h3>
             <h3 className="chat__user-list-header"> Users online: </h3>
             <div className="chat__user-list">
-                {roomUsers.map((user, i) => <li key={i} className="chat__user">{user.name}</li>)}
+                {roomUsers.map((user, i) => <h4 key={i} className="chat__user">{user.name}</h4>)}
             </div>
         </div>
     );

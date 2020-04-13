@@ -6,8 +6,8 @@ import ChatUsers from './ChatComponents/ChatUsers/ChatUsers'
 import MessageInput from './ChatComponents/MessageInput/MessageInput'
 import ChatMessages from './ChatComponents/ChatMessages/ChatMessages'
 
-// initialize socket connection with server
-const ENDPOINT = 'https://chat-app-rjs.herokuapp.com/'
+// initialize socket connection with server http://localhost:8080/
+const ENDPOINT = 'http://localhost:8080/'
 let socket = io(ENDPOINT)
 
 export default function Chat({ location }) {
@@ -43,35 +43,41 @@ export default function Chat({ location }) {
 
     useEffect(() => {
 
+        //getting user and room data
         const { room, user } = queryString.parse(location.search)
         setUser(user)
         setRoom(room)
 
-        socket.emit('join-room', { user, room }, () => {
-            socket.emit('disconnect')
-            socket.off()
-            alert('error')
+        // send user and room data to the server 
+        socket.emit('join-room', { user, room }, (error) => {
+            if (error) {
+                alert(error);
+            }
         })
 
+        //receive msg from server that new User was added to room and add Invitation msg
         socket.on('newUser', (msg) => {
             setMessages((messages => [...messages, msg]))
         })
 
+        //get data about active users in the room and set using hooks
         socket.on('roomUsers', ({ room, users }) => {
             setRoom(room)
             setRoomUsers(users)
         })
 
+        //listen on chat message 
         socket.on('chat-message', msg => {
             setMessages((messages => [...messages, msg]))
         })
 
+        // disconnection of user after leaving the room
         return () => {
             socket.emit('disconnect')
             socket.off()
         }
 
-    }, []);
+    }, [location.search]);
 
 
     return (

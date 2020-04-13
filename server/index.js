@@ -22,39 +22,26 @@ app.use(cors)
 
 io.on('connection', socket => {
 
-    socket.on('join-room', ({
-        user,
-        room
-    }, cb) => {
+    socket.on('join-room', ({ user, room }, cb) => {
 
-        const {
-            error,
-            newUser
-        } = addUser(socket.id, user, room)
+        const { error, newUser } = addUser(socket.id, user, room)
 
         if (error) {
-            cb()
+            return cb(error)
         } else {
             socket.join(newUser.room)
-
             io.to(newUser.room).emit('roomUsers', {
                 room: newUser.room,
                 users: getRoomUsers(newUser.room)
             })
-
-            socket.emit('chat-message', formatMessage(bot, `Hello ${newUser.name}, Welcome to room ${newUser.room}`))
-
+            socket.emit('chat-message', formatMessage(bot, `Hello, ${newUser.name}! Welcome to room ${newUser.room}!`))
             socket.broadcast.to(newUser.room)
-                .emit('newUser', formatMessage(bot, `User ${newUser.name} join the room ${newUser.room}`))
+                .emit('newUser', formatMessage(bot, `User ${newUser.name} has joined the room ${newUser.room}`))
         }
-
-
     })
 
     socket.on('chat-message', msg => {
-
         const user = getUser(socket.id)
-
         io.to(user.room).emit('chat-message', formatMessage(user.name, msg))
     })
 
@@ -63,20 +50,14 @@ io.on('connection', socket => {
         const user = deleteUser(socket.id)
 
         if (user) {
-
             io.to(user.room)
                 .emit('chat-message', formatMessage(bot, `User ${user.name} has left the room ${user.room}`))
-
             io.to(user.room).emit('roomUsers', {
                 room: user.room,
                 users: getRoomUsers(user.room)
             })
-
         }
-
     })
 })
-
-
 
 server.listen(PORT, () => console.log(`Server is running at port: ${PORT}`))
