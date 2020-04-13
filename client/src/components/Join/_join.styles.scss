@@ -1,0 +1,48 @@
+.form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    color: $font-primary;
+}
+
+* .input {
+    margin-bottom: 35px;
+    width: 45%;
+    height: 35px;
+    transition: all 0.2s ease;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+}
+
+* .input:focus {
+    outline: none;
+    background-color: rgb(62, 84, 209);
+    box-shadow: 0 1px 10px 1px rgba(255, 255, 255, 0.3);
+}
+
+.join {
+    width: 45%;
+    height: 35px;
+}
+
+.btn {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: $btn-color;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: scale(1.04);
+    }
+}
+
+// .btn:hover {
+//     background-color: rgb(62, 84, 209);
+// }

@@ -1,0 +1,33 @@
+.message-input {
+    align-self: center;
+
+    &__input {
+        width: 300px;
+        height: 35px;
+        transition: all 0.2s ease;
+        text-align: center;
+        border: none;
+        border-radius: 5px;
+
+        &:focus {
+            outline: none;
+            background-color: rgb(62, 84, 209);
+            box-shadow: 0 1px 10px 1px rgba(255, 255, 255, 0.3);
+        }
+
+    }
+
+    &__btn {
+        margin-left: 10px;
+        width: 100px;
+        height: 35px;
+        border: none;
+        border-radius: 5px;
+        background-color: rgb(41, 112, 204);
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+}

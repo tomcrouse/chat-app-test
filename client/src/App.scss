@@ -1,0 +1,37 @@
+@import './styles/_variables';
+@import './components/Join/_join.styles';
+@import './components/Chat/chat.styles';
+@import'./components//Chat/ChatComponents/Message/chatMessage.styles';
+@import'./components//Chat/ChatComponents/ChatMessages/chatMessages.styles';
+@import'./components//Chat/ChatComponents/ChatUsers/chatUsers.styles';
+@import'./components//Chat/ChatComponents/MessageInput/messageInput.styles';
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $bgc-primary;
+}
+
+.container {
+    width: 60vw;
+    height: 70vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $bgc-secondary;
+    border-radius: 10px;
+    box-shadow: 0 1px 10px 1px rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,16 @@
+.chat__messages {
+    padding: 20px;
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    background-color: rgb(29, 29, 29);
+}
+
+.chat__messages-viewport {
+    padding: 20px;
+    height: 80%;
+    width: 100%;
+    background-color: rgb(24, 24, 24);
+}

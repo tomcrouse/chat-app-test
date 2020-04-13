@@ -1,0 +1,33 @@
+.chat__users {
+    padding: 20px;
+    width: 30%;
+    height: 100%;
+    background-color: rgb(61, 61, 61);
+    display: flex;
+    flex-flow: column;
+}
+
+.chat__room-name {
+    margin-bottom: 10px;
+}
+
+.chat__room-name+h3 {
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: rgb(141, 141, 141);
+}
+
+.chat__user {
+    margin-bottom: 10px;
+    color: black;
+}
+
+.chat__user-list {
+    padding: 10px;
+    background-color: rgb(141, 141, 141);
+    height: 80%;
+}
+
+.chat__user-list-header {
+    margin-bottom: 10px;
+}
